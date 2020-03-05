@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+ <link rel="stylesheet" href="assets/css/main.css" />
+ <title>connecd</title>
+ <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+ <script>
+ function initialize() {
+
+ /*
+ http://openapi.map.naver.com/api/geocode.php?key=f32441ebcd3cc9de474f8081df1e54e3&encoding=euc-kr&coord=LatLng&query=서울특별시 노원구 섬밭로 258
+ 위의 링크에서 뒤에 주소를 적으면 x,y 값을 구할수 있습니다.
+ */
+ var Y_point = 37.485904; // Y 좌표
+ var X_point = 126.897285; // X 좌표
+ var zoomLevel = 17; // 첫 로딩시 보일 지도의 확대 레벨
+ var markerTitle = "토다이 중계점"; // 현재 위치 마커에 마우스를 올렸을때 나타나는 이름
+ var markerMaxWidth = 300; // 마커를 클릭했을때 나타나는 말풍선의 최대 크기
+
+ // 말풍선 내용
+
+
+ var myLatlng = new google.maps.LatLng(Y_point, X_point);
+ var mapOptions = {
+ zoom: zoomLevel,
+ center: myLatlng,
+ mapTypeId: google.maps.MapTypeId.ROADMAP
+ }
+ var map = new google.maps.Map(document.getElementById('map_view'), mapOptions);
+
+ var marker = new google.maps.Marker({
+ position: myLatlng,
+ map: map,
+ title: markerTitle
+ });
+
+ var infowindow = new google.maps.InfoWindow(
+ {
+ content: contentString,
+ maxWidth: markerMaxWidth
+ }
+ );
+
+ google.maps.event.addListener(marker, 'click', function() {
+ infowindow.open(map, marker);
+ });
+ }
+ </script>
+
+    <style>
+        #contectmemo{
+            text-align: center;
+            font-size: 3em;
+            margin-top: 1em;
+        }
+        
+        #map_view{
+            margin-top: 1em;
+        }
+    </style>
+    </head>
+
+<body onload="initialize()">
+	<div id="header-wrapper">
+					<header id="header" class="container">
+
+						<!-- Logo -->
+							<div id="logo">
+								<h1><img src="images/MediaTech.jpg" width="250"></h1>
+								
+							</div>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a href="index.html">HOME</a></li>
+									
+									<li class="current"><a href="catalogue.html">CATALOGUE</a></li>
+									
+									<li><a href="connectmap.html">CONTECT US</a></li>
+								</ul>
+							</nav>
+
+					</header>
+				</div>
+
+    
+    
+    <div id="map_view" style="width:100%; height:30em;"></div>
+<div id="contectmemo"><h1>WE'D Love to Hear From you</h1></div>    
+
+    	<div id="footer-wrapper">
+					<footer id="footer" class="container">
+						<div class="row">
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+										
+										<ul class="style2">
+											<li><img src="images/MediaTech-Logo-2.png" width=""></li>
+											
+										</ul>
+									</section>
+
+							</div>
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+										<h3>KOREA</h3>
+										<ul class="style2">
+											<li>B-105, Daeryung Post Tower 2</li>
+											<li>306, Digital-ro, Guro-gu</li>
+											<li>Seoul, 08378, Korea</li>
+											<li>Tel. 82-2-2082-0003~5</li>
+											<li>Fax. 82-2-2082-0006</li>
+                                            <li>E-mail: mediatech@mte21.com</li>
+                                            <li>Homepage: www.mte21.com</li>
+										</ul>
+									</section>
+
+							</div>
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+										<h3>INTERNATIONAL</h3>
+										<ul class="style2">
+											<li>Edmund Lee</li>
+											<li>Managing Director</li>
+											<li>2751 Seadrift Lane</li>
+											<li>Hayward, CA. 94545</li>
+											<li>Tel: +1 (650) 407-7285</li>
+                                            <li>E-mail: edmund.lee@mte21.com</li>
+                                            <li>Homepage: eng.mte21.com</li>
+										</ul>
+									</section>
+
+							</div>
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Contact -->
+									<section class="widget contact">
+										<h3>Contact Us</h3>
+										<ul>
+											<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+											<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+											<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+											<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+											<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+										</ul>
+										<p>1234 Fictional Road<br />
+										Nashville, TN 00000<br />
+										(800) 555-0000</p>
+									</section>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div id="copyright">
+									<ul class="menu">
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+
+			</div>
+    
+    
+    </body>
+</html>
